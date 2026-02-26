@@ -1,0 +1,23 @@
+name: Release Schemas
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Package schemas
+        run: tar -czf schemas-${{ github.ref_name }}.tar.gz --exclude='.git' .
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: schemas-${{ github.ref_name }}.tar.gz
+          generate_release_notes: true
