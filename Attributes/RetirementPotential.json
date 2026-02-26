@@ -1,0 +1,15 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": [
+        "retirement_potential"
+    ],
+    "properties": {
+        "retirement_potential": {
+            "type": "array",
+            "items": {
+                "type": "integer"
+            }
+        }
+    }
+}

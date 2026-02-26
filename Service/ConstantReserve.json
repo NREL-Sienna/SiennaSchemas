@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "available": {
+      "type": "boolean"
+    },
+    "time_frame": {
+      "type": "number"
+    },
+    "requirement": {
+      "type": "number"
+    },
+    "sustained_time": {
+      "default": 3600.0,
+      "type": "number"
+    },
+    "max_output_fraction": {
+      "default": 1.0,
+      "type": "number"
+    },
+    "max_participation_factor": {
+      "default": 1.0,
+      "type": "number"
+    },
+    "deployed_fraction": {
+      "default": 0.0,
+      "type": "number"
+    },
+    "reserve_direction": {
+      "$ref": "../common.json#/definitions/ReserveDirection"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "available",
+    "time_frame",
+    "requirement",
+    "reserve_direction"
+  ],
+  "title": "ConstantReserve",
+  "type": "object"
+}

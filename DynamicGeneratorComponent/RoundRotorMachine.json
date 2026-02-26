@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "R": {
+      "type": "number"
+    },
+    "Td0_p": {
+      "type": "number"
+    },
+    "Td0_pp": {
+      "type": "number"
+    },
+    "Tq0_p": {
+      "type": "number"
+    },
+    "Tq0_pp": {
+      "type": "number"
+    },
+    "Xd": {
+      "type": "number"
+    },
+    "Xq": {
+      "type": "number"
+    },
+    "Xd_p": {
+      "type": "number"
+    },
+    "Xq_p": {
+      "type": "number"
+    },
+    "Xd_pp": {
+      "type": "number"
+    },
+    "Xl": {
+      "type": "number"
+    },
+    "Se": {
+      "type": "array",
+      "description": "this is meant to be a tuple, should we do this another way?",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "gamma_d1": {
+      "type": "number",
+      "description": "Do not modify"
+    },
+    "gamma_q1": {
+      "type": "number",
+      "description": "Do not modify"
+    },
+    "gamma_d2": {
+      "type": "number",
+      "description": "Do not modify"
+    },
+    "gamma_q2": {
+      "type": "number",
+      "description": "Do not modify"
+    },
+    "gamma_qd": {
+      "type": "number",
+      "description": "Do not modify"
+    }
+  },
+  "required": [
+    "id",
+    "R",
+    "Td0_p",
+    "Td0_pp",
+    "Tq0_p",
+    "Tq0_pp",
+    "Xd",
+    "Xq",
+    "Xd_p",
+    "Xq_p",
+    "Xd_pp",
+    "Xl",
+    "Se",
+    "gamma_d1",
+    "gamma_q1",
+    "gamma_d2",
+    "gamma_q2",
+    "gamma_qd"
+  ],
+  "title": "RoundRotorMachine",
+  "type": "object"
+}

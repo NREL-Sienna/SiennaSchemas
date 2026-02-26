@@ -1,0 +1,165 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "available": {
+      "type": "boolean"
+    },
+    "arc": {
+      "type": "integer"
+    },
+    "active_power_flow": {
+      "type": "number"
+    },
+    "rating": {
+      "type": "number"
+    },
+    "active_power_limits_from": {
+      "$ref": "../common.json#/definitions/MinMax"
+    },
+    "active_power_limits_to": {
+      "$ref": "../common.json#/definitions/MinMax"
+    },
+    "g": {
+      "default": 0.0,
+      "type": "number"
+    },
+    "dc_current": {
+      "default": 0.0,
+      "type": "number"
+    },
+    "reactive_power_from": {
+      "default": 0.0,
+      "type": "number"
+    },
+    "dc_voltage_control_from": {
+      "default": true,
+      "type": "boolean"
+    },
+    "ac_voltage_control_from": {
+      "default": true,
+      "type": "boolean"
+    },
+    "dc_setpoint_from": {
+      "default": 0.0,
+      "type": "number"
+    },
+    "ac_setpoint_from": {
+      "default": 1.0,
+      "type": "number"
+    },
+    "converter_loss_from": {
+      "default": {
+        "curve_type": "INPUT_OUTPUT",
+        "function_data": {
+          "function_type": "LINEAR",
+          "constant_term": 0,
+          "proportional_term": 0
+        },
+        "input_at_zero": 0
+      },
+      "$ref": "../common.json#/definitions/InputOutputCurve"
+    },
+    "max_dc_current_from": {
+      "default": 100000000.0,
+      "type": "number"
+    },
+    "rating_from": {
+      "default": 100000000.0,
+      "type": "number"
+    },
+    "reactive_power_limits_from": {
+      "default": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "$ref": "../common.json#/definitions/MinMax"
+    },
+    "power_factor_weighting_fraction_from": {
+      "default": 1.0,
+      "type": "number"
+    },
+    "voltage_limits_from": {
+      "default": {
+        "min": 0.0,
+        "max": 999.9
+      },
+      "$ref": "../common.json#/definitions/MinMax"
+    },
+    "reactive_power_to": {
+      "default": 0.0,
+      "type": "number"
+    },
+    "dc_voltage_control_to": {
+      "default": true,
+      "type": "boolean"
+    },
+    "ac_voltage_control_to": {
+      "default": true,
+      "type": "boolean"
+    },
+    "dc_setpoint_to": {
+      "default": 0.0,
+      "type": "number"
+    },
+    "ac_setpoint_to": {
+      "default": 1.0,
+      "type": "number"
+    },
+    "converter_loss_to": {
+      "default": {
+        "curve_type": "INPUT_OUTPUT",
+        "function_data": {
+          "function_type": "LINEAR",
+          "constant_term": 0,
+          "proportional_term": 0
+        },  
+        "input_at_zero": 0
+      }, 
+      "$ref": "../common.json#/definitions/InputOutputCurve"
+    },
+    "max_dc_current_to": {
+      "default": 100000000.0,
+      "type": "number"
+    },
+    "rating_to": {
+      "default": 100000000.0,
+      "type": "number"
+    },
+    "reactive_power_limits_to": {
+      "default": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "$ref": "../common.json#/definitions/MinMax"
+    },
+    "power_factor_weighting_fraction_to": {
+      "default": 1.0,
+      "type": "number"
+    },
+    "voltage_limits_to": {
+      "default": {
+        "min": 0.0,
+        "max": 999.9
+      },
+      "$ref": "../common.json#/definitions/MinMax"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "available",
+    "arc",
+    "active_power_flow",
+    "rating",
+    "active_power_limits_from",
+    "active_power_limits_to"
+  ],
+  "title": "TwoTerminalVSCLine",
+  "type": "object"
+}

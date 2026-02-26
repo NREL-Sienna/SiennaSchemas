@@ -1,0 +1,149 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "available": {
+      "type": "boolean"
+    },
+    "bus": {
+      "type": "integer"
+    },
+    "active_power": {
+      "type": "number"
+    },
+    "reactive_power": {
+      "type": "number"
+    },
+    "rating": {
+      "type": "number"
+    },
+    "active_power_limits": {
+      "$ref": "../common.json#/definitions/MinMax"
+    },
+    "reactive_power_limits": {
+      "descriptor": "in psy5 a required param with an option to be nothing",
+      "$ref": "../common.json#/definitions/MinMax"
+    },
+    "active_power_limits_pump": {
+      "$ref": "../common.json#/definitions/MinMax"
+    },
+    "outflow_limits": {
+      "descriptor": "in psy5 a required param with an option to be nothing",
+      "$ref": "../common.json#/definitions/MinMax"
+    },
+    "powerhouse_elevation": {
+      "type": "number"
+    },
+    "ramp_limits": {
+      "descriptor": "in psy5 a required param with an option to be nothing",
+      "$ref": "../common.json#/definitions/UpDown"
+    },
+    "time_limits": {
+      "descriptor": "in psy5 a required param with an option to be nothing",
+      "$ref": "../common.json#/definitions/UpDown"
+    },
+    "base_power": {
+      "type": "number"
+    },
+    "status": {
+      "default": "OFF",
+      "$ref": "../common.json#/definitions/PumpHydroStatus"
+    },
+    "time_at_status": {
+      "descriptor": "default is psy const INFINITE_TIME = 1e4",  
+      "default": 10000.0,
+      "type": "number"
+    },
+    "operation_cost": {
+      "descriptor": "or MarketBidCost; default PSY.HydroGenerationCost(nothing)",
+      "default": {
+        "variable": {
+          "variable_cost_type": "COST",
+          "value_curve": {
+            "curve_type": "INPUT_OUTPUT",
+            "function_data": {
+              "function_type": "LINEAR",
+              "constant_term": 0,
+              "proportional_term": 0
+            },
+            "input_at_zero": 0
+          },
+          "vom_cost": {
+            "curve_type": "INPUT_OUTPUT",
+            "function_data": {
+              "function_type": "LINEAR",
+              "constant_term": 0,
+              "proportional_term": 0
+            },
+            "input_at_zero": 0
+          } 
+        }
+      },
+      "$ref": "../common.json#/definitions/HydroGenerationCost"
+    },
+    "active_power_pump": {
+      "default": 0.0,
+      "type": "number"
+    },
+    "efficiency": {
+      "default": {
+        "turbine": 1.0,
+        "pump": 1.0
+      },
+      "$ref": "../common.json#/definitions/TurbinePump"
+    },
+    "transition_time": {
+      "default": {
+        "turbine": 0.0,
+        "pump": 0.0
+      },
+      "$ref": "../common.json#/definitions/TurbinePump"
+    },
+    "minimum_time": {
+      "default": {
+        "turbine": 0.0,
+        "pump": 0.0
+      },
+      "$ref": "../common.json#/definitions/TurbinePump"
+    },
+    "travel_time": {
+      "type": "number"
+    },
+    "conversion_factor": {
+      "default": 1.0,
+      "type": "number"
+    },
+    "must_run": {
+      "default": false,
+      "type": "boolean"
+    },
+    "prime_mover_type": {
+      "$ref": "../common.json#/definitions/PrimeMovers",
+      "default": "PS"
+    },
+    "dynamic_injector": {
+      "type": null
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "available",
+    "bus",
+    "active_power",
+    "reactive_power",
+    "rating",
+    "active_power_limits",
+    "active_power_limits_pump",
+    "powerhouse_elevation",
+    "base_power",
+    "operation_cost"
+  ],
+  "title": "HydroPumpTurbine",
+  "type": "object"
+}

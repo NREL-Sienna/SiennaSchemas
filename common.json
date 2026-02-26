@@ -1,0 +1,1098 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "ACBusType": {
+      "enum": [
+        "PQ",
+        "PV",
+        "REF",
+        "ISOLATED",
+        "SLACK"
+      ],
+      "title": "ACBusType",
+      "type": "string"
+    },
+    "AverageRateCurve": {
+      "properties": {
+        "curve_type": {
+          "const": "AVERAGE_RATE",
+          "type": "string",
+          "default": "AVERAGE_RATE"
+        },
+        "function_data": {
+          "discriminator": {
+            "mapping": {
+              "LINEAR": "#/definitions/LinearFunctionData",
+              "PIECEWISE_LINEAR": "#/definitions/PiecewiseLinearData",
+              "QUADRATIC": "#/definitions/QuadraticFunctionData"
+            },
+            "propertyName": "function_type"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LinearFunctionData"
+            },
+            {
+              "$ref": "#/definitions/QuadraticFunctionData"
+            },
+            {
+              "$ref": "#/definitions/PiecewiseLinearData"
+            }
+          ]
+        },
+        "initial_input": {
+          "type": "number"
+        },
+        "input_at_zero": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "function_data",
+        "curve_type"
+      ],
+      "title": "AverageRateCurve",
+      "type": "object"
+    },
+    "ComplexNumber": {
+      "properties": {
+        "real": {
+          "type": "number"
+        },
+        "imag": {
+          "type": "number"
+        }
+      },
+      "title": "ComplexNumber",
+      "type": "object"
+    },
+    "CostCurve": {
+      "properties": {
+        "power_units": {
+          "default": "NATURAL_UNITS",
+          "$ref": "#/definitions/UnitSystem"
+        },
+        "value_curve": {
+          "$ref": "#/definitions/ValueCurve"
+        },
+        "variable_cost_type": {
+          "const": "COST",
+          "type": "string",
+          "default": "COST"
+        },
+        "vom_cost": {
+          "default": {
+            "curve_type": "INPUT_OUTPUT",
+            "function_data": {
+              "function_type": "LINEAR",
+              "constant_term": 0,
+              "proportional_term": 0
+            },
+            "input_at_zero": 0
+          },  
+          "$ref": "#/definitions/InputOutputCurve"
+        }
+      },
+      "required": [
+        "value_curve",
+        "power_units",
+        "vom_cost",
+        "variable_cost_type"
+      ],
+      "title": "CostCurve",
+      "type": "object"
+    },
+    "DbdPnts": {
+      "properties": {
+        "dbd1": {
+          "type": "number"
+        },
+        "dbd2": {
+          "type": "number"
+        }
+      },
+      "title": "DbdPnts",
+      "type": "object"
+    },
+    "DiscreteControlledBranchStatus": {
+      "enum": [
+        "OPEN",
+        "CLOSED"
+      ],
+      "title": "DiscreteControlledBranchStatus",
+      "type": "string"
+    },
+    "DiscreteControlledBranchType": {
+      "enum": [
+        "SWITCH",
+        "BREAKER",
+        "OTHER"
+      ],
+      "title": "DiscreteControlledBranchType",
+      "type": "string"
+    },
+    "FACTSOperationModes": {
+      "enum": [
+        "OOS",
+        "NML",
+        "BYP"
+      ],
+      "title": "FACTSOperationModes",
+      "type": "string"
+    },
+    "FdbdPnts": {
+      "properties": {
+        "fdbd1": {
+          "type": "number"
+        },
+        "fdbd2": {
+          "type": "number"
+        }
+      },
+      "title": "FdbdPnts",
+      "type": "object"
+    },
+    "FromTo": {
+      "properties": {
+        "from": {
+          "title": "From",
+          "type": "number"
+        },
+        "to": {
+          "title": "To",
+          "type": "number"
+        }
+      },
+      "title": "FromTo",
+      "type": "object"
+    },
+    "FromTo_ToFrom": {
+      "properties": {
+        "from_to": {
+          "title": "FromTo",
+          "type": "number"
+        },
+        "to_from": {
+          "title": "ToFrom",
+          "type": "number"
+        }
+      },
+      "title": "FromTo_ToFrom",
+      "type": "object"
+    },
+    "FuelCurve": {
+      "properties": {
+        "fuel_cost": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            }
+          ]
+        },
+        "power_units": {
+          "$ref": "#/definitions/UnitSystem"
+        },
+        "value_curve": {
+          "$ref": "#/definitions/ValueCurve"
+        },
+        "variable_cost_type": {
+          "const": "FUEL",
+          "type": "string",
+          "default": "FUEL"
+        },
+        "vom_cost": {
+          "$ref": "#/definitions/InputOutputCurve"
+        }
+      },
+      "required": [
+        "value_curve",
+        "power_units",
+        "fuel_cost",
+        "vom_cost",
+        "variable_cost_type"
+      ],
+      "title": "FuelCurve",
+      "type": "object"
+    },
+    "FunctionData": {
+      "discriminator": {
+        "mapping": {
+          "LINEAR": "#/definitions/LinearFunctionData",
+          "PIECEWISE_LINEAR": "#/definitions/PiecewiseLinearData",
+          "PIECEWISE_STEP": "#/definitions/PiecewiseStepData",
+          "QUADRATIC": "#/definitions/QuadraticFunctionData"
+        },
+        "propertyName": "function_type"
+      },
+      "oneOf": [
+        {
+          "$ref": "#/definitions/LinearFunctionData"
+        },
+        {
+          "$ref": "#/definitions/QuadraticFunctionData"
+        },
+        {
+          "$ref": "#/definitions/PiecewiseLinearData"
+        },
+        {
+          "$ref": "#/definitions/PiecewiseStepData"
+        }
+      ],
+      "title": "FunctionData",
+      "type": "object"
+    },
+    "HydroGenerationCost": {
+      "description": "Cost representation for hydro gen units",
+      "properties": {
+        "cost_type": {
+          "const": "HYDRO_GEN",
+          "type": "string",
+          "default": "HYDRO_GEN"
+        },
+        "fixed": {
+          "default": 0.0,
+          "type": "number"
+        },
+        "variable": {
+          "$ref": "#/definitions/ProductionVariableCostCurve"
+        }
+      },
+      "required": [
+        "variable"
+      ],
+      "title": "HydroGenerationCost",
+      "type": "object"
+    },
+    "HydroReservoirCost": {
+      "description": "Cost representation for hydro reservoir",
+      "properties": {
+        "cost_type": {
+          "const": "HYDRO_RES",
+          "type": "string",
+          "default": "HYDRO_RES"
+        },
+        "level_shortage_cost": {
+          "default": 0.0,
+          "type": "number"
+        },
+        "level_surplus_cost": {
+          "default": 0.0,
+          "type": "number"
+        },
+        "spillage_cost": {
+          "default": 0.0,
+          "type": "number"
+        }
+      },
+      "title": "HydroReservoirCost",
+      "type": "object"
+    },
+    "HydroStorageGenerationCost": {
+      "title": "HydroStorageGenerationCost",
+      "type": "object",
+      "discriminator": {
+        "mapping": {
+          "HYDRO_GEN": "#/definitions/HydroGenerationCost",
+          "STORAGE": "#/definitions/StorageCost"
+        },
+        "propertyName": "cost_type"
+      },
+      "oneOf": [
+        {
+          "$ref": "../common.json#/definitions/HydroGenerationCost"
+        },
+        {
+          "$ref": "../common.json#/definitions/StorageCost"
+        }
+      ]
+    },
+    "HydroTurbineType": {
+      "enum": [
+        "UNKNOWN",
+        "PELTON",
+        "FRANCIS",
+        "KAPLAN",
+        "TURGO",
+        "CROSSFLOW",
+        "BULB",
+        "DERIAZ",
+        "PROPELLER",
+        "OTHER"
+      ],
+      "title": "HydroTurbineType",
+      "type": "string"
+    },
+    "ImpedanceCorrectionTransformerControlMode": {
+      "enum": [
+        "PHASE_SHIFT_ANGLE",
+        "TAP_RATIO"
+      ],
+      "title": "ImpedanceCorrectionTransformerControlMode",
+      "type": "string"
+    },
+    "ImportExportCost": {
+      "properties": {
+        "cost_type": {
+          "const": "IMPORTEXPORT",
+          "type": "string",
+          "default": "IMPORTEXPORT"
+        },
+        "import_offer_curves": {
+          "$ref": "#/definitions/CostCurve"
+        },
+        "export_offer_curves": {
+          "$ref": "#/definitions/CostCurve"
+        },
+        "energy_import_weekly_limit": {
+          "type": "number"
+        },
+        "energy_export_weekly_limit": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "energy_import_weekly_limit",
+        "energy_export_weekly_limit"
+      ],
+      "title": "ImportExportCost",
+      "type": "object"
+    },
+    "IncrementalCurve": {
+      "properties": {
+        "curve_type": {
+          "const": "INCREMENTAL",
+          "type": "string",
+          "default": "INCREMENTAL"
+        },
+        "function_data": {
+          "discriminator": {
+            "mapping": {
+              "LINEAR": "#/definitions/LinearFunctionData",
+              "PIECEWISE_STEP": "#/definitions/PiecewiseStepData"
+            },
+            "propertyName": "function_type"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LinearFunctionData"
+            },
+            {
+              "$ref": "#/definitions/PiecewiseStepData"
+            }
+          ]
+        },
+        "initial_input": {
+          "type": "number"
+        },
+        "input_at_zero": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "function_data",
+        "curve_type"
+      ],
+      "title": "IncrementalCurve",
+      "type": "object"
+    },
+    "InOut": {
+      "properties": {
+        "in": {
+          "type": "number"
+        },
+        "out": {
+          "type": "number"
+        }
+      },
+      "title": "InOut",
+      "type": "object"
+    },
+    "InputOutputCurve": {
+      "default": {
+        "curve_type": "INPUT_OUTPUT",
+        "function_data": {
+          "function_type": "LINEAR",
+          "constant_term": 0,
+          "proportional_term": 0
+        },
+        "input_at_zero": 0
+      },
+      "properties": {
+        "curve_type": {
+          "const": "INPUT_OUTPUT",
+          "type": "string",
+          "default": "INPUT_OUTPUT"
+        },
+        "function_data": {
+          "discriminator": {
+            "mapping": {
+              "LINEAR": "#/definitions/LinearFunctionData",
+              "PIECEWISE_LINEAR": "#/definitions/PiecewiseLinearData",
+              "QUADRATIC": "#/definitions/QuadraticFunctionData"
+            },
+            "propertyName": "function_type"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/definitions/QuadraticFunctionData"
+            },
+            {
+              "$ref": "#/definitions/LinearFunctionData"
+            },
+            {
+              "$ref": "#/definitions/PiecewiseLinearData"
+            }
+          ]
+        },
+        "input_at_zero": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "function_data",
+        "curve_type"
+      ],
+      "title": "InputOutputCurve",
+      "type": "object"
+    },
+    "LinearFunctionData": {
+      "properties": {
+        "constant_term": {
+          "type": "number"
+        },
+        "function_type": {
+          "const": "LINEAR",
+          "type": "string",
+          "default": "LINEAR"
+        },
+        "proportional_term": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "proportional_term",
+        "constant_term",
+        "function_type"
+      ],
+      "title": "LinearFunctionData",
+      "type": "object"
+    },
+    "LoadConformity": {
+      "enum": [
+        "NON_CONFORMING",
+        "CONFORMING",
+        "UNDEFINED"
+      ],
+      "title": "LoadConformity",
+      "type": "string"
+    },
+    "LoadCost": {
+      "description": "Cost representation for controllable load units",
+      "properties": {
+        "cost_type": {
+          "const": "LOAD",
+          "type": "string",
+          "default": "LOAD"
+        },
+        "fixed": {
+          "default": 0.0,
+          "type": "number"
+        },
+        "variable": {
+          "$ref": "#/definitions/CostCurve"
+        }
+      },
+      "required": [
+        "variable"
+      ],
+      "title": "LoadCost",
+      "type": "object"
+    },
+    "MinMax": {
+      "properties": {
+        "max": {
+          "title": "Max",
+          "type": "number"
+        },
+        "min": {
+          "title": "Min",
+          "type": "number"
+        }
+      },
+      "title": "MinMax",
+      "type": "object"
+    },
+    "MotorLoadTechnology": {
+      "enum": [
+        "INDUCTION",
+        "SYNCHRONOUS",
+        "UNDETERMINED"
+      ],
+      "title": "MotorLoadTechnology",
+      "type": "string"
+    },
+    "PiecewiseLinearData": {
+      "properties": {
+        "function_type": {
+          "const": "PIECEWISE_LINEAR",
+          "type": "string",
+          "default": "PIECEWISE_LINEAR"
+        },
+        "points": {
+          "items": {
+            "$ref": "#/definitions/XY_Coords"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "points",
+        "function_type"
+      ],
+      "title": "PiecewiseLinearData",
+      "type": "object"
+    },
+    "PiecewiseStepData": {
+      "properties": {
+        "function_type": {
+          "const": "PIECEWISE_STEP",
+          "type": "string",
+          "default": "PIECEWISE_STEP"
+        },
+        "x_coords": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "y_coords": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "x_coords",
+        "y_coords",
+        "function_type"
+      ],
+      "title": "PiecewiseStepData",
+      "type": "object"
+    },
+    "PrimeMovers": {
+      "enum": [
+        "BA",
+        "BT",
+        "CA",
+        "CC",
+        "CE",
+        "CP",
+        "CS",
+        "CT",
+        "ES",
+        "FC",
+        "FW",
+        "GT",
+        "HA",
+        "HB",
+        "HK",
+        "HY",
+        "IC",
+        "PS",
+        "OT",
+        "ST",
+        "PVe",
+        "WT",
+        "WS"
+      ],
+      "title": "PrimeMovers",
+      "type": "string"
+    },
+    "ProductionVariableCostCurve": {
+      "title": "ProductionVariableCostCurve",
+      "discriminator": {
+        "mapping": {
+          "COST": "#/definitions/CostCurve",
+          "FUEL": "#/definitions/FuelCurve"
+        },
+        "propertyName": "variable_cost_type"
+      },
+      "oneOf": [
+        {
+          "$ref": "#/definitions/CostCurve"
+        },
+        {
+          "$ref": "#/definitions/FuelCurve"
+        }
+      ],
+      "type": "object"
+    },
+    "PumpHydroStatus": {
+      "enum": [
+        "PUMP",
+        "GEN",
+        "OFF"
+      ],
+      "title": "PumpHydroStatus",
+      "type": "string"
+    },
+    "QuadraticFunctionData": {
+      "properties": {
+        "constant_term": {
+          "type": "number"
+        },
+        "function_type": {
+          "const": "QUADRATIC",
+          "type": "string",
+          "default": "QUADRATIC"
+        },
+        "proportional_term": {
+          "type": "number"
+        },
+        "quadratic_term": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "quadratic_term",
+        "proportional_term",
+        "constant_term",
+        "function_type"
+      ],
+      "title": "QuadraticFunctionData",
+      "type": "object"
+    },
+    "RenewableGenerationCost": {
+      "description": "Cost representation for renewable generation units",
+      "properties": {
+        "cost_type": {
+          "const": "RENEWABLE",
+          "type": "string",
+          "default": "RENEWABLE"
+        },
+        "curtailment_cost": {
+          "default": {
+            "variable_cost_type": "COST",
+            "value_curve": {
+              "curve_type": "INPUT_OUTPUT",
+              "function_data": {
+                "function_type": "LINEAR",
+                "constant_term": 0,
+                "proportional_term": 0
+              },
+              "input_at_zero": 0
+            },
+            "vom_cost": {
+              "curve_type": "INPUT_OUTPUT",
+              "function_data": {
+                "function_type": "LINEAR",
+                "constant_term": 0,
+                "proportional_term": 0
+              },
+              "input_at_zero": 0
+            } 
+          },
+          "$ref": "#/definitions/CostCurve"
+        },
+        "variable": {
+          "$ref": "#/definitions/CostCurve"
+        },
+        "fixed": {
+          "const": 0.0,
+          "type": "number",
+          "default": 0.0
+        }
+      },
+      "required": [
+        "variable"
+      ],
+      "title": "RenewableGenerationCost",
+      "type": "object"
+    },
+    "ReserveDirection": {
+      "enum": [
+        "UP",
+        "DOWN",
+        "SYMMETRIC"
+      ],
+      "title": "ReserveDirection",
+      "type": "string"
+    },
+    "ReservoirLocation": {
+      "enum": [
+        "HEAD",
+        "TAIL"
+      ],
+      "title": "ReservoirLocation",
+      "type": "string"
+    },
+    "ReservoirDataType": {
+      "enum": [
+        "USABLE_VOLUME",
+        "TOTAL_VOLUME",
+        "HEAD",
+        "ENERGY"
+      ],
+      "title": "ReservoirDataType",
+      "type": "string"
+    },
+    "StartUpShutDown": {
+      "properties": {
+        "startup": {
+          "title": "StartUp",
+          "type": "number"
+        },
+        "shutdown": {
+          "title": "ShutDown",
+          "type": "number"
+        }
+      },
+      "title": "StartUpShutDown",
+      "type": "object"
+    },
+    "StartUpStages": {
+      "properties": {
+        "startup_stages_type": {
+          "const": "STAGES",
+          "type": "string",
+          "default": "STAGES"
+        },
+        "cold": {
+          "type": "number"
+        },
+        "hot": {
+          "type": "number"
+        },
+        "warm": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "hot",
+        "warm",
+        "cold"
+      ],
+      "title": "StartUpStages",
+      "type": "object"
+    },
+    "StorageCost": {
+      "description": "Cost representation for storage units",
+      "properties": {
+        "cost_type": {
+          "const": "STORAGE",
+          "type": "string",
+          "default": "STORAGE"
+        },
+        "charge_variable_cost": {
+          "$ref": "#/definitions/CostCurve"
+        },
+        "discharge_variable_cost": {
+          "$ref": "#/definitions/CostCurve"
+        },
+        "fixed": {
+          "default": 0.0,
+          "type": "number"
+        },
+        "shut_down": {
+          "default": 0.0,
+          "type": "number"
+        },
+        "start_up": {
+          "default": 0.0,
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "properties": {
+                "charge": {
+                  "type": "number"
+                },
+                "discharge": {
+                  "type": "number"
+                }
+              },
+              "type": "object"
+            }
+          ]
+        },
+        "energy_shortage_cost": {
+          "default": 0.0,
+          "type": "number"
+        },
+        "energy_surplus_cost": {
+          "default": 0.0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "fixed",
+        "start_up",
+        "shut_down"
+      ],
+      "title": "StorageCost",
+      "type": "object"
+    },
+    "StorageTech": {
+      "description": "defines the storage technology used in an energy Storage system, based on the options in EIA form 923.",
+      "enum": [
+        "PTES",
+        "LIB",
+        "LAB",
+        "FLWB",
+        "SIB",
+        "ZIB",
+        "HGS",
+        "LAES",
+        "OTHER_CHEM",
+        "OTHER_MECH",
+        "OTHER_THERM"
+      ],
+      "title": "StorageTech",
+      "type": "string"
+    },
+    "ThermalFuels": {
+      "description": "Thermal fuels that reflect options in the EIA annual energy review.",
+      "enum": [
+        "ANTHRACITE_COAL",
+        "BITUMINOUS_COAL",
+        "LIGNITE_COAL",
+        "SUBBITUMINOUS_COAL",
+        "WASTE_COAL",
+        "REFINED_COAL",
+        "SYNTHESIS_GAS_COAL",
+        "DISTILLATE_FUEL_OIL",
+        "JET_FUEL",
+        "KEROSENE",
+        "PETROLEUM_COKE",
+        "RESIDUAL_FUEL_OIL",
+        "PROPANE",
+        "SYNTHESIS_GAS_PETROLEUM_COKE",
+        "WASTE_OIL",
+        "BLASTE_FURNACE_GAS",
+        "NATURAL_GAS",
+        "OTHER_GAS",
+        "AG_BYPRODUCT",
+        "MUNICIPAL_WASTE",
+        "OTHER_BIOMASS_SOLIDS",
+        "WOOD_WASTE_SOLIDS",
+        "OTHER_BIOMASS_LIQUIDS",
+        "SLUDGE_WASTE",
+        "BLACK_LIQUOR",
+        "WOOD_WASTE_LIQUIDS",
+        "LANDFILL_GAS",
+        "OTHEHR_BIOMASS_GAS",
+        "NUCLEAR",
+        "WASTE_HEAT",
+        "TIREDERIVED_FUEL",
+        "COAL",
+        "GEOTHERMAL",
+        "OTHER"
+      ],
+      "title": "ThermalFuels",
+      "type": "string"
+    },
+    "ThermalGenerationCost": {
+      "title": "ThermalGenerationCost",
+      "description": "Cost representation for thermal generation units",
+      "properties": {
+        "cost_type": {
+          "const": "THERMAL",
+          "type": "string",
+          "default": "THERMAL"
+        },
+        "fixed": {
+          "description": "Fixed cost of keeping the unit online. For some cost represenations this field can be duplicative",
+          "type": "number"
+        },
+        "shut_down": {
+          "description": "Cost to turn the unit off",
+          "type": "number"
+        },
+        "start_up": {
+          "discriminator": {
+            "mapping": {
+              "STAGES": "#/definitions/StartUpStages"
+            },  
+            "propertyName": "startup_stages_type"
+          },  
+          "description": "Start-up cost can take linear or multi-stage cost",
+          "oneOf": [
+            {   
+              "type": "number"
+            },
+            {   
+              "$ref": "#/definitions/StartUpStages"
+            }
+          ]   
+        },
+        "variable": {
+          "$ref": "#/definitions/ProductionVariableCostCurve"
+        }
+      },
+      "required": [
+        "variable",
+        "fixed",
+        "start_up",
+        "shut_down"
+      ],
+      "type": "object"
+    },
+    "TransformerControlObjective": {
+      "enum": [
+        "UNDEFINED",
+        "VOLTAGE_DISABLED",
+        "REACTIVE_POWER_FLOW_DISABLED",
+        "ACTIVE_POWER_FLOW_DISABLED",
+        "CONTROL_OF_DC_LINE_DISABLED",
+        "ASYMETRIC_ACTIVE_POWER_FLOW_DISABLED",
+        "FIXED",
+        "VOLTAGE",
+        "REACTIVE_POWER_FLOW",
+        "ACTIVE_POWER_FLOW",
+        "CONTROL_OF_DC_LINE",
+        "ASYMETRIC_ACTIVE_POWER_FLOW"
+      ],
+      "title": "TransformerControlObjective",
+      "type": "string"
+    },
+    "TurbinePump": {
+      "properties": {
+        "turbine": {
+          "type": "number"
+        },
+        "pump": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "turbine",
+        "pump"
+      ],
+      "title": "TurbinePump",
+      "type": "object"
+    },
+    "TwoTerminalLoss": {
+      "title": "TwoTerminalLoss",
+      "discriminator": {
+        "mapping": {
+          "INCREMENTAL": "#/definitions/IncrementalCurve",
+          "INPUT_OUTPUT": "#/definitions/InputOutputCurve"
+        },  
+        "propertyName": "curve_type"
+      },  
+      "oneOf": [
+        {   
+          "$ref": "#/definitions/InputOutputCurve"
+        },  
+        {   
+          "$ref": "#/definitions/IncrementalCurve"
+        }   
+      ],
+      "default": {
+        "curve_type": "INPUT_OUTPUT",
+        "function_data": {
+          "function_type": "LINEAR",
+          "constant_term": 0,
+          "proportional_term": 0
+        }, 
+        "input_at_zero": 0
+      },
+      "type": "object"  
+    },
+    "UnitSystem": {
+      "enum": [
+        "SYSTEM_BASE",
+        "DEVICE_BASE",
+        "NATURAL_UNITS"
+      ],
+      "title": "UnitSystem",
+      "type": "string"
+    },
+    "UpDown": {
+      "properties": {
+        "down": {
+          "title": "Down",
+          "type": "number"
+        },
+        "up": {
+          "title": "Up",
+          "type": "number"
+        }
+      },
+      "required": [
+        "up",
+        "down"
+      ],
+      "title": "UpDown",
+      "type": "object"
+    },
+    "ValueCurve": {
+      "discriminator": {
+        "mapping": {
+          "AVERAGE_RATE": "#/definitions/AverageRateCurve",
+          "INCREMENTAL": "#/definitions/IncrementalCurve",
+          "INPUT_OUTPUT": "#/definitions/InputOutputCurve"
+        },
+        "propertyName": "curve_type"
+      },
+      "oneOf": [
+        {
+          "$ref": "#/definitions/InputOutputCurve"
+        },
+        {
+          "$ref": "#/definitions/IncrementalCurve"
+        },
+        {
+          "$ref": "#/definitions/AverageRateCurve"
+        }
+      ],
+      "title": "ValueCurve",
+      "type": "object"
+    },
+    "WindingCategory": {
+      "enum": [
+        "TR2W_WINDING",
+        "PRIMARY_WINDING",
+        "SECONDARY_WINDING",
+        "TERTIARY_WINDING"
+      ],
+      "title": "WindingCategory",
+      "type": "string"
+    },
+    "WindingGroupNumber": {
+      "enum": [
+        "UNDEFINED",
+        "GROUP_0",
+        "GROUP_1",
+        "GROUP_5",
+        "GROUP_6",
+        "GROUP_7",
+        "GROUP_11"
+      ],
+      "title": "WindingGroupNumber",
+      "type": "string"
+    },
+    "XY_Coords": {
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "x",
+        "y"
+      ],
+      "title": "XY_Coords",
+      "type": "object"
+    }
+  },
+  "id": "#root"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "peak_active_power": {
+      "type": "number"
+    },
+    "peak_reactive_power": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "peak_active_power",
+    "peak_reactive_power"
+  ],
+  "title": "LoadZone",
+  "type": "object"
+}

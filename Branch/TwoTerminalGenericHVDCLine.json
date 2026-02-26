@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "available": {
+      "type": "boolean"
+    },
+    "active_power_flow": {
+      "type": "number"
+    },
+    "arc": {
+      "type": "integer"
+    },
+    "active_power_limits_from": {
+      "$ref": "../common.json#/definitions/MinMax"
+    },
+    "active_power_limits_to": {
+      "$ref": "../common.json#/definitions/MinMax"
+    },
+    "reactive_power_limits_from": {
+      "$ref": "../common.json#/definitions/MinMax"
+    },
+    "reactive_power_limits_to": {
+      "$ref": "../common.json#/definitions/MinMax"
+    },
+    "loss": {
+      "$ref": "../common.json#/definitions/TwoTerminalLoss"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "available",
+    "active_power_flow",
+    "arc",
+    "active_power_limits_from",
+    "active_power_limits_to",
+    "reactive_power_limits_from",
+    "reactive_power_limits_to"
+  ],
+  "title": "TwoTerminalGenericHVDCLine",
+  "type": "object"
+}

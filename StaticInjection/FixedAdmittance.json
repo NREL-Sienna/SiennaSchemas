@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "available": {
+      "type": "boolean"
+    },
+    "bus": {
+      "type": "integer"
+    },
+    "Y": {
+      "$ref": "../common.json#/definitions/ComplexNumber"
+    },
+    "dynamic_injector": {
+      "type": null
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "available",
+    "bus",
+    "Y"
+  ],
+  "title": "FixedAdmittance",
+  "type": "object"
+}

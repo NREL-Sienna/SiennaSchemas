@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "available": {
+      "type": "boolean"
+    },
+    "bus": {
+      "type": "integer"
+    },
+    "dc_bus": {
+      "type": "integer"
+    },
+    "active_power": {
+      "type": "number"
+    },
+    "rating": {
+      "type": "number"
+    },
+    "active_power_limits": {
+      "$ref": "../common.json#/definitions/MinMax"
+    },
+    "base_power": {
+      "type": "number"
+    },
+    "dc_current": {
+      "default": 0.0,
+      "type": "number"
+    },
+    "max_dc_current": {
+      "default": 100000000.0,
+      "type": "number"
+    },
+    "loss_function": {
+      "$ref": "../common.json#/definitions/InputOutputCurve"
+    },
+    "dynamic_injector": {
+      "type": null
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "available",
+    "bus",
+    "dc_bus",
+    "active_power",
+    "rating",
+    "base_power",
+    "active_power_limits"
+  ],
+  "title": "InterconnectingConverter",
+  "type": "object"
+}

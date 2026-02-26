@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "available": {
+      "type": "boolean"
+    },
+    "bias": {
+      "type": "number"
+    },
+    "K_p": {
+      "type": "number"
+    },
+    "K_i": {
+      "type": "number"
+    },
+    "K_d": {
+      "type": "number"
+    },
+    "delta_t": {
+      "type": "number"
+    },
+    "area": {
+      "type": "integer"
+    },
+    "initial_ace": {
+      "default": 0.0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "available",
+    "bias",
+    "K_p",
+    "K_i",
+    "K_d",
+    "delta_t"
+  ],
+  "title": "AGC",
+  "type": "object"
+}
