@@ -16,7 +16,7 @@ Tagged releases (e.g., `v1.2.0`) trigger a GitHub Actions workflow that packages
 
 Each downstream repo contains its own `codegen/` directory with a Dockerfile and generation script tailored to its target language. When a new schema release is detected, the repo's codegen container runs and a pull request is opened for review. Repos track which schema version they were last generated from in a `.schema-version` file.
 
-## Code Generation
+## Code Generation for Testing
 
 Use `openapi-generator` with the provided config files:
 
