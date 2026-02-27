@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "available": {
+      "type": "boolean"
+    },
+    "active_power_flow": {
+      "type": "number"
+    },
+    "reactive_power_flow": {
+      "type": "number"
+    },
+    "arc": {
+      "type": "integer"
+    },
+    "r": {
+      "type": "number"
+    },
+    "x": {
+      "type": "number"
+    },
+    "b": {
+      "$ref": "../../Core/common.json#/definitions/FromTo"
+    },
+    "flow_limits": {
+      "$ref": "../../Core/common.json#/definitions/FromTo_ToFrom"
+    },
+    "rating": {
+      "type": "number"
+    },
+    "rating_b": {
+      "type": "number"
+    },
+    "rating_c": {
+      "type": "number"
+    },
+    "angle_limits": {
+      "$ref": "../../Core/common.json#/definitions/MinMax"
+    },
+    "g": {
+      "default": {
+        "from": 0.0,
+        "to": 0.0
+      },
+      "$ref": "../../Core/common.json#/definitions/FromTo"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "available",
+    "active_power_flow",
+    "reactive_power_flow",
+    "arc",
+    "r",
+    "x",
+    "b",
+    "flow_limits",
+    "rating",
+    "angle_limits"
+  ],
+  "title": "MonitoredLine",
+  "type": "object"
+}

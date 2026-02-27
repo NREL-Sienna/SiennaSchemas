@@ -1,0 +1,27 @@
+{
+    "inputSpec": "openapi-operations.json",
+    "inlineSchemaNameMappings": {
+        "AverageRateCurve_1": "AverageRateCurve",
+        "CostCurve_1": "CostCurve",
+        "FuelCurve_1": "FuelCurve",
+        "HydroGenerationCost_1": "HydroGenerationCost",
+        "HydroReservoir_1": "HydroReservoir",
+        "IncrementalCurve_1": "IncrementalCurve",
+        "InputOutputCurve_1": "InputOutputCurve",
+        "LinearFunctionData_1": "LinearFunctionData",
+        "MinMax_1": "MinMax",
+        "MinMax_2": "MinMax",
+        "PiecewiseLinearData_1": "PiecewiseLinearData",
+        "PiecewiseStepData_1": "PiecewiseStepData",
+        "ProductionVariableCostCurve_1": "ProductionVariableCostCurve",
+        "QuadraticFunctionData_1": "QuadraticFunctionData",
+        "RenewableGenerationCost_1": "RenewableGenerationCost",
+        "StartUpStages_1": "StartUpStages",
+        "StorageCost_1": "StorageCost",
+        "ThermalGenerationCost_1": "ThermalGenerationCost",
+        "TurbinePump_1": "TurbinePump",
+        "UpDown_1": "UpDown",
+        "ValueCurve_1": "ValueCurve",
+        "XY_Coords_1": "XY_Coords"
+    }
+}

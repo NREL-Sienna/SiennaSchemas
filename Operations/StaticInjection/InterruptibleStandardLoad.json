@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "available": {
+      "type": "boolean"
+    },
+    "bus": {
+      "type": "integer"
+    },
+    "base_power": {
+      "type": "number"
+    },
+    "operation_cost": {
+      "descriptor": "or MarketBidCost",
+      "$ref": "../../Core/common.json#/definitions/LoadCost"
+    },
+    "conformity": {
+      "default": "UNDEFINED",
+      "$ref": "../../Core/common.json#/definitions/LoadConformity"
+    },
+    "constant_active_power": {
+      "default": 0.0,
+      "type": "number"
+    },
+    "constant_reactive_power": {
+      "default": 0.0,
+      "type": "number"
+    },
+    "impedance_active_power": {
+      "default": 0.0,
+      "type": "number"
+    },
+    "impedance_reactive_power": {
+      "default": 0.0,
+      "type": "number"
+    },
+    "current_active_power": {
+      "default": 0.0,
+      "type": "number"
+    },
+    "current_reactive_power": {
+      "default": 0.0,
+      "type": "number"
+    },
+    "max_constant_active_power": {
+      "default": 0.0,
+      "type": "number"
+    },
+    "max_constant_reactive_power": {
+      "default": 0.0,
+      "type": "number"
+    },
+    "max_impedance_active_power": {
+      "default": 0.0,
+      "type": "number"
+    },
+    "max_impedance_reactive_power": {
+      "default": 0.0,
+      "type": "number"
+    },
+    "max_current_active_power": {
+      "default": 0.0,
+      "type": "number"
+    },
+    "max_current_reactive_power": {
+      "default": 0.0,
+      "type": "number"
+    },
+    "dynamic_injector": {
+      "type": null
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "available",
+    "bus",
+    "base_power",
+    "operation_cost"
+  ],
+  "title": "InterruptibleStandardLoad",
+  "type": "object"
+}
