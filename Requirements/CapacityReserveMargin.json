@@ -21,15 +21,18 @@
                 "type": "integer"
             }
         },
+        "eligible_technologies": {
+            "type": "array",
+            "items": {
+                "type": "integer"
+            }
+        },
         "target_year": {
             "type": "integer"
         },
-        "max_tons_mwh": {
+        "capacity_reserve_fraction": {
             "type": "number",
-            "default": "1e8"
-        },
-        "max_mtons": {
-            "type": "number"
+            "default": "0.0"
         }
     }
 }

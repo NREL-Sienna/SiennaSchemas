@@ -5,11 +5,14 @@
         "existing_capacity"
     ],
     "properties": {
-        "existing_technologies": {
+        "buses": {
             "type": "array",
             "items": {
                 "type": "string"
             }
+        },
+        "uuid": {
+            "type": "string"
         }
     }
 }

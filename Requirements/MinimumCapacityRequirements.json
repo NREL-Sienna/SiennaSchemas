@@ -16,8 +16,8 @@
         "available": {
             "type": "boolean"
         },
-        "power_systems_type": {
-            "type": "string"
+        "target_year": {
+            "type": "integer"
         },
         "eligible_resources": {
             "type": "array",
@@ -25,10 +25,7 @@
                 "type": "integer"
             }
         },
-        "min_mw": {
-            "type": "number"
-        },
-        "pricecap": {
+        "min_capacity_mw": {
             "type": "number"
         }
     }

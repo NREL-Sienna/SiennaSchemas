@@ -5,9 +5,21 @@
         "retirement_potential"
     ],
     "properties": {
-        "retirement_potential": {
+        "eligible_generators": {
             "type": "array",
             "items": {
+                "type": "string"
+            }
+        },
+        "planned_retirement_year": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "integer"
+            }
+        },
+        "build_year": {
+            "type": "object",
+            "additionalProperties": {
                 "type": "integer"
             }
         }

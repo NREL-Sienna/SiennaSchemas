@@ -13,10 +13,6 @@
         "power_systems_type": {
             "type": "string"
         },
-        "base_year": {
-            "type": "integer",
-            "default": "2020"
-        },
         "region": {
             "type": "array",
             "items": {
@@ -29,12 +25,6 @@
         "available": {
             "type": "boolean"
         },
-        "balancing_topology": {
-            "type": "string"
-        },
-        "base_power": {
-            "type": "number"
-        },
         "prime_mover_type": {
             "$ref": "../common.json#/definitions/PrimeMovers",
             "default": "OT"
@@ -43,12 +33,6 @@
             "type": "array",
             "items": {
                 "$ref": "../common.json#/definitions/ThermalFuels"
-            }
-        },
-        "heat_rate_mmbtu_per_mwh": {
-            "type": "object",
-            "additionalProperties":{
-                "$ref": "../common.json#/definitions/ValueCurve"
             }
         },
         "co2": {
@@ -89,10 +73,6 @@
                 }
             ]
         },
-        "initial_capacity": {
-            "type": "number",
-            "default": "0.0"
-        },
         "unit_size": {
             "type": "number",
             "default": "0.0"
@@ -104,29 +84,15 @@
             "type": "number",
             "default": "1.0"
         },
-        "min_generation_percentage": {
+        "min_generation_fraction": {
             "type": "number",
             "default": "0.0"
         },
-        "ramp_up_percentage": {
-            "type": "number",
-            "default": "100.0"
+        "ramp_limits": {
+            "$ref": "../common.json#/definitions/UpDown"
         },
-        "ramp_dn_percentage": {
-            "type": "number",
-            "default": "100.0"
-        },
-        "up_time": {
-            "type": "number",
-            "default": "0.0"
-        },
-        "dn_time": {
-            "type": "number",
-            "default": "0.0"
-        },
-        "start_cost_per_mw": {
-            "type": "number",
-            "default": "0.0"
+        "time_limits": {
+            "$ref": "../common.json#/definitions/UpDown"
         },
         "start_fuel_mmbtu_per_mw": {
             "type": "number",
@@ -137,7 +103,7 @@
             "default": "100"
         },
         "financial_data": {
-            "type": "integer"
+            "$ref": "../common.json#/definitions/TechnologyFinancialData"
         }
     }
 }

@@ -16,6 +16,12 @@
         "available": {
             "type": "boolean"
         },
+        "region": {
+            "type": "array",
+            "items": {
+                "type": "integer"
+            }
+        },
         "power_systems_type": {
             "type": "string"
         },
@@ -24,20 +30,33 @@
             "default": "0.0"
         },
         "price_per_unit": {
-            "type": "number",
-            "default": "0.0"
+            "$ref": "../common.json#/definitions/ValueCurve"
         },
         "min_power": {
             "type": "number",
             "default": "0.0"
         },
-        "ramp_up_percentage": {
+        "peak_demand_mw": {
             "type": "number",
-            "default": "1.0"
+            "default": "0.0"
         },
-        "ramp_dn_percentage": {
-            "type": "number",
-            "default": "1.0"
+        "max_demand_delay": {
+            "type": "number"
+        },
+        "max_demand_advance": {
+            "type": "number"
+        },
+        "demand_energy_efficiency": {
+            "type": "number"
+        },
+        "shift_variable_cost": {
+            "$ref": "../common.json#/definitions/ValueCurve"
+        },
+        "curtailment_cost": {
+            "$ref": "../common.json#/definitions/ValueCurve"
+        },
+        "max_demand_curtailment": {
+            "type": "number"
         }
     }
 }

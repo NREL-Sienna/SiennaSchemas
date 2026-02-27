@@ -15,21 +15,17 @@
         "available": {
             "type": "boolean"
         },
-        "eligible_regions": {
+        "eligible_resources": {
             "type": "array",
             "items": {
                 "type": "integer"
             }
         },
-        "target_year": {
-            "type": "integer"
-        },
-        "max_tons_mwh": {
-            "type": "number",
-            "default": "1e8"
-        },
-        "max_mtons": {
-            "type": "number"
+        "eligible_demand": {
+            "type": "array",
+            "items": {
+                "type": "integer"
+            }
         }
     }
 }

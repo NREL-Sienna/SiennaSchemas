@@ -5,11 +5,14 @@
         "retrofit_potential"
     ],
     "properties": {
-        "retrofit_potential": {
+        "eligible_generators": {
             "type": "array",
             "items": {
                 "type": "string"
             }
+        },
+        "uuid": {
+            "type": "string"
         }
     }
 }

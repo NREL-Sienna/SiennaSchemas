@@ -15,21 +15,18 @@
         "available": {
             "type": "boolean"
         },
+        "target_year": {
+            "type": "integer"
+        },
         "eligible_regions": {
             "type": "array",
             "items": {
                 "type": "integer"
             }
         },
-        "target_year": {
-            "type": "integer"
-        },
-        "max_tons_mwh": {
+        "tax_dollars_per_ton": {
             "type": "number",
-            "default": "1e8"
-        },
-        "max_mtons": {
-            "type": "number"
+            "default": "0.0"
         }
     }
 }

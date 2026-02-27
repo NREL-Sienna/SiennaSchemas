@@ -10,9 +10,6 @@
         "name": {
             "type": "string"
         },
-        "base_year": {
-            "type": "integer"
-        },
         "region": {
             "type": "array",
             "items": {
@@ -28,11 +25,9 @@
         "power_systems_type": {
             "type": "string"
         },
-        "balancing_topology": {
-            "type": "string"
-        },
-        "base_power": {
-            "type": "number"
+        "min_discharge_fraction": {
+            "type": "number",
+            "default": "0.0"
         },
         "prime_mover_type": {
             "$ref": "../common.json#/definitions/PrimeMovers",
@@ -44,24 +39,20 @@
         "capital_costs_energy": {
             "$ref": "../common.json#/definitions/ValueCurve"
         },
-        "capital_costs_power": {
+        "capital_costs_charge": {
             "$ref": "../common.json#/definitions/ValueCurve"
         },
-        "operations_costs_energy": {
+        "capital_costs_discharge": {
+            "$ref": "../common.json#/definitions/ValueCurve"
+        },
+        "operation_costs": {
             "$ref": "../common.json#/definitions/StorageCost"
         },
-        "operations_costs_power": {
-            "$ref": "../common.json#/definitions/StorageCost"
-        },
-        "existing_capacity_power": {
+        "unit_size_discharge": {
             "type": "number",
             "default": "0.0"
         },
-        "existing_capacity_energy": {
-            "type": "number",
-            "default": "0.0"
-        },
-        "unit_size_power": {
+        "unit_size_charge": {
             "type": "number",
             "default": "0.0"
         },
@@ -69,7 +60,10 @@
             "type": "number",
             "default": "0.0"
         },
-        "capacity_limits_power": {
+        "capacity_limits_charge": {
+            "$ref": "../common.json#/definitions/MinMax"
+        },
+        "capacity_limits_discharge": {
             "$ref": "../common.json#/definitions/MinMax"
         },
         "capacity_limits_energy": {
@@ -90,7 +84,7 @@
             "default": "100"
         },
         "financial_data": {
-            "type": "integer"
+            "$ref": "../common.json#/definitions/TechnologyFinancialData"
         }
     }
 }

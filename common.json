@@ -1054,6 +1054,30 @@
       "title": "ValueCurve",
       "type": "object"
     },
+    "TechnologyFinancialData": {
+        "properties": {
+          "capital_recovery_period": {
+              "type": "integer"
+          },
+          "technology_base_year": {
+              "type": "integer"
+          },
+          "debt_fraction": {
+              "type": "number"
+          },
+          "debt_rate": {
+              "type": "number"
+          },
+          "return_on_equity": {
+              "type": "number"
+          },
+          "tax_rate": {
+              "type": "number"
+          }
+        },
+        "title": "TechnologyFinancialData",
+        "type": "object"
+    },
     "WindingCategory": {
       "enum": [
         "TR2W_WINDING",

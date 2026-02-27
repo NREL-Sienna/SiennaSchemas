@@ -20,7 +20,7 @@
         "power_systems_type": {
             "type": "string"
         },
-        "demand_mw": {
+        "peak_demand_mw": {
             "type": "number",
             "default": "0.0"
         },
@@ -29,6 +29,12 @@
             "items": {
                 "type": "integer"
             }
+        },
+        "value_of_lost_load": {
+            "type": "number"
+        },
+        "unserved_demand_curve": {
+            "$ref": "../common.json#/definitions/ValueCurve"
         }
     }
 }

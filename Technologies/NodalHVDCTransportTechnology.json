@@ -1,0 +1,44 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": [
+        "name",
+        "available",
+        "id"
+    ],
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "id": {
+            "type": "integer"
+        },
+        "available": {
+            "type": "boolean"
+        },
+        "power_systems_type": {
+            "type": "string"
+        },
+        "start_node": {
+            "type": "integer"
+        },
+        "end_node": {
+            "type": "integer"
+        },
+        "capacity_limits": {
+            "$ref": "../common.json#/definitions/MinMax"
+        },
+        "capital_costs": {
+            "$ref": "../common.json#/definitions/ValueCurve"
+        },
+        "line_loss": {
+            "type": "number"
+        },
+        "unit_size": {
+            "type": "number"
+        },
+        "financial_data": {
+            "$ref": "../common.json#/definitions/TechnologyFinancialData"
+        }
+    }
+}
