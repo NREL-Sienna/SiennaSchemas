@@ -17,7 +17,6 @@ The Sienna schema ecosystem spans three repositories:
 |---|---|
 | **SiennaSchemas** (this repo) | Schema definitions, OpenAPI specs, schema validation tests |
 | **PowerOpenAPIModels** | Code generation producing Julia and Python packages |
-| **PowerSystemSchemas** | Hand-written PowerSystems.jl integration code (converters, utilities) |
 
 ## Generated Package Structure
 
@@ -43,26 +42,18 @@ Dynamics/                # DynamicGeneratorComponent/, DynamicInverterComponent/
 
 Each domain has a corresponding OpenAPI spec file (e.g., `openapi-core.json`, `openapi-operations.json`) that lists which schemas to include in that package's generation.
 
-## Code Generation Approach
-
-The codegen pipeline (in PowerOpenAPIModels) follows this pattern:
-
-1. **Generate Core first** from `openapi-core.json`
-2. **Generate other packages** from their respective OpenAPI specs
-3. **Post-process** to avoid type duplication:
-   - Parse Core's OpenAPI spec to get the list of Core type names
-   - Delete matching model files from Operations/Investments/Dynamics output
-   - Remove those entries from `modelincludes.jl` (Julia) or equivalent
-   - Add import statement for the Core package
-
-This ensures Core types are defined once and imported by dependent packages.
-
 ## Schema Conventions
 
 - All schemas use JSON Schema draft-07 (`"$schema": "http://json-schema.org/draft-07/schema#"`)
 - Cross-references use relative paths (e.g., `"$ref": "../../Core/common.json#/definitions/MinMax"`)
 - Discriminated unions use `oneOf` with a `discriminator` block specifying `propertyName` and `mapping`
 - Component schemas typically define `id` (integer), `name` (string), `available` (boolean) as base properties
+- Additional properties like `ext`, supplemental attributes, and some many-to-many relations are stored _separately_.
+- One-to-many relations are often replaced with an integer id reference.
+- Units are expected to be in natural units with few exceptions for power factor and cost curves.
+- Read-only fields (such as for dynamic components) should be avoided.
+- Ordering should try and match Sienna conventions: id, name, bus, ...
+- Path aliasing problems are resolved with `inlineSchemaMapping` in the `openapi-config*.json` files.
 
 ## Generator Config Files
 
