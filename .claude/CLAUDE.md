@@ -27,7 +27,7 @@ Schemas are organized to generate four separate packages (both Julia and Python)
 |---|---|---|
 | **PowerCoreOpenAPIModels** | Shared types: curves, enums, helpers (MinMax, UpDown, CostCurve, etc.) | None |
 | **PowerOperationsOpenAPIModels** | Topology, Branch, StaticInjection, Service | Core |
-| **PowerInvestmentsOpenAPIModels** | Technologies, Financials, Requirements, Attributes, Regions | Core |
+| **PowerInvestmentsOpenAPIModels** | Technologies, Financials, Requirements, Attributes, Regions, Portfolio | Core |
 | **PowerDynamicsOpenAPIModels** | DynamicGeneratorComponent, DynamicInverterComponent | Core |
 
 Note: Investments depends only on Core (not Operations). The integer ID references between schemas are semantic, not formal type dependencies.
@@ -35,9 +35,9 @@ Note: Investments depends only on Core (not Operations). The integer ID referenc
 ## Schema Directory Structure
 
 ```
-Core/                    # Shared types (from common.json)
+Core/                    # Shared types (common.json)
 Operations/              # Topology/, Branch/, StaticInjection/, Service/
-Investments/             # Technologies/, Financials/, Requirements/, Attributes/, Regions/
+Investments/             # Technologies/, Financials/, Requirements/, Attributes/, Regions/, Portfolio/
 Dynamics/                # DynamicGeneratorComponent/, DynamicInverterComponent/
 ```
 
