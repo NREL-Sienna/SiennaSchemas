@@ -1,0 +1,32 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": [
+        "name",
+        "available"
+    ],
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "id": {
+            "type": "integer"
+        },
+        "available": {
+            "type": "boolean"
+        },
+        "target_year": {
+            "type": "integer"
+        },
+        "eligible_regions": {
+            "type": "array",
+            "items": {
+                "type": "integer"
+            }
+        },
+        "tax_dollars_per_ton": {
+            "type": "number",
+            "default": "0.0"
+        }
+    }
+}

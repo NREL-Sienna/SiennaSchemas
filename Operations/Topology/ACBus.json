@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "number": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "available": {
+      "type": "boolean"
+    }, 
+    "bustype": {
+      "descriptor": "in psy5 a required param with an option to be nothing",
+      "$ref": "../../Core/common.json#/definitions/ACBusType"
+    },
+    "angle": {
+      "type": "number"
+    },
+    "magnitude": {
+      "type": "number"
+    },
+    "voltage_limits": {
+      "$ref": "../../Core/common.json#/definitions/MinMax"
+    },
+    "base_voltage": {
+      "type": "number"
+    },
+    "area": {
+      "type": "integer"
+    },
+    "load_zone": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "available",
+    "number"
+  ],
+  "title": "ACBus",
+  "type": "object"
+}

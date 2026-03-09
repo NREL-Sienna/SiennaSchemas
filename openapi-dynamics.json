@@ -1,0 +1,34 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "PowerDynamicsOpenAPIModels",
+    "version": "1.0.0",
+    "description": "Power system dynamics models: DynamicGeneratorComponent and DynamicInverterComponent"
+  },
+  "paths": {},
+  "components": {
+    "schemas": {
+      "ActiveRenewableControllerAB": {
+        "$ref": "Dynamics/DynamicInverterComponent/ActiveRenewableControllerAB.json"
+      },
+      "RECurrentControlB": {
+        "$ref": "Dynamics/DynamicInverterComponent/RECurrentControlB.json"
+      },
+      "ReactiveRenewableControllerAB": {
+        "$ref": "Dynamics/DynamicInverterComponent/ReactiveRenewableControllerAB.json"
+      },
+      "RenewableEnergyConverterTypeA": {
+        "$ref": "Dynamics/DynamicInverterComponent/RenewableEnergyConverterTypeA.json"
+      },
+      "RoundRotorMachine": {
+        "$ref": "Dynamics/DynamicGeneratorComponent/RoundRotorMachine.json"
+      },
+      "SEXS": {
+        "$ref": "Dynamics/DynamicGeneratorComponent/SEXS.json"
+      },
+      "SteamTurbineGov1": {
+        "$ref": "Dynamics/DynamicGeneratorComponent/SteamTurbineGov1.json"
+      }
+    }
+  }
+}

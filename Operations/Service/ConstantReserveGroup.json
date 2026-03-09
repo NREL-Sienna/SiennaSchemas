@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "available": {
+      "type": "boolean"
+    },
+    "requirement": {
+      "type": "number"
+    },
+    "reserve_direction": {
+      "$ref": "../../Core/common.json#/definitions/ReserveDirection"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "available",
+    "requirement",
+    "reserve_direction"
+  ],
+  "title": "ConstantReserveGroup",
+  "type": "object"
+}

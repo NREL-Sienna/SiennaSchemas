@@ -1,0 +1,18 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": [
+        "retrofit_potential"
+    ],
+    "properties": {
+        "eligible_generators": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "uuid": {
+            "type": "string"
+        }
+    }
+}

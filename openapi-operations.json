@@ -1,0 +1,151 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "PowerOperationsOpenAPIModels",
+    "version": "1.0.0",
+    "description": "Power system operations models: Topology, Branch, StaticInjection, and Service components"
+  },
+  "paths": {},
+  "components": {
+    "schemas": {
+      "ACBus": {
+        "$ref": "Operations/Topology/ACBus.json"
+      },
+      "AGC": {
+        "$ref": "Operations/Service/AGC.json"
+      },
+      "Arc": {
+        "$ref": "Operations/Topology/Arc.json"
+      },
+      "Area": {
+        "$ref": "Operations/Topology/Area.json"
+      },
+      "AreaInterchange": {
+        "$ref": "Operations/Branch/AreaInterchange.json"
+      },
+      "ConstantReserve": {
+        "$ref": "Operations/Service/ConstantReserve.json"
+      },
+      "ConstantReserveGroup": {
+        "$ref": "Operations/Service/ConstantReserveGroup.json"
+      },
+      "ConstantReserveNonSpinning": {
+        "$ref": "Operations/Service/ConstantReserveNonSpinning.json"
+      },
+      "DCBus": {
+        "$ref": "Operations/Topology/DCBus.json"
+      },
+      "DiscreteControlledACBranch": {
+        "$ref": "Operations/Branch/DiscreteControlledACBranch.json"
+      },
+      "EnergyReservoirStorage": {
+        "$ref": "Operations/StaticInjection/EnergyReservoirStorage.json"
+      },
+      "ExponentialLoad": {
+        "$ref": "Operations/StaticInjection/ExponentialLoad.json"
+      },
+      "FACTSControlDevice": {
+        "$ref": "Operations/StaticInjection/FACTSControlDevice.json"
+      },
+      "FixedAdmittance": {
+        "$ref": "Operations/StaticInjection/FixedAdmittance.json"
+      },
+      "HydroDispatch": {
+        "$ref": "Operations/StaticInjection/HydroDispatch.json"
+      },
+      "HydroPumpTurbine": {
+        "$ref": "Operations/StaticInjection/HydroPumpTurbine.json"
+      },
+      "HydroReservoir": {
+        "$ref": "Operations/StaticInjection/HydroReservoir.json"
+      },
+      "HydroTurbine": {
+        "$ref": "Operations/StaticInjection/HydroTurbine.json"
+      },
+      "InterconnectingConverter": {
+        "$ref": "Operations/StaticInjection/InterconnectingConverter.json"
+      },
+      "InterruptiblePowerLoad": {
+        "$ref": "Operations/StaticInjection/InterruptiblePowerLoad.json"
+      },
+      "InterruptibleStandardLoad": {
+        "$ref": "Operations/StaticInjection/InterruptibleStandardLoad.json"
+      },
+      "Line": {
+        "$ref": "Operations/Branch/Line.json"
+      },
+      "LoadZone": {
+        "$ref": "Operations/Topology/LoadZone.json"
+      },
+      "MonitoredLine": {
+        "$ref": "Operations/Branch/MonitoredLine.json"
+      },
+      "MotorLoad": {
+        "$ref": "Operations/StaticInjection/MotorLoad.json"
+      },
+      "PhaseShiftingTransformer": {
+        "$ref": "Operations/Branch/PhaseShiftingTransformer.json"
+      },
+      "PhaseShiftingTransformer3W": {
+        "$ref": "Operations/Branch/PhaseShiftingTransformer3W.json"
+      },
+      "PowerLoad": {
+        "$ref": "Operations/StaticInjection/PowerLoad.json"
+      },
+      "RenewableDispatch": {
+        "$ref": "Operations/StaticInjection/RenewableDispatch.json"
+      },
+      "RenewableNonDispatch": {
+        "$ref": "Operations/StaticInjection/RenewableNonDispatch.json"
+      },
+      "ShiftablePowerLoad": {
+        "$ref": "Operations/StaticInjection/ShiftablePowerLoad.json"
+      },
+      "Source": {
+        "$ref": "Operations/StaticInjection/Source.json"
+      },
+      "StandardLoad": {
+        "$ref": "Operations/StaticInjection/StandardLoad.json"
+      },
+      "SwitchedAdmittance": {
+        "$ref": "Operations/StaticInjection/SwitchedAdmittance.json"
+      },
+      "SynchronousCondenser": {
+        "$ref": "Operations/StaticInjection/SynchronousCondenser.json"
+      },
+      "TModelHVDCLine": {
+        "$ref": "Operations/Branch/TModelHVDCLine.json"
+      },
+      "TapTransformer": {
+        "$ref": "Operations/Branch/TapTransformer.json"
+      },
+      "ThermalMultiStart": {
+        "$ref": "Operations/StaticInjection/ThermalMultiStart.json"
+      },
+      "ThermalStandard": {
+        "$ref": "Operations/StaticInjection/ThermalStandard.json"
+      },
+      "Transformer2W": {
+        "$ref": "Operations/Branch/Transformer2W.json"
+      },
+      "Transformer3W": {
+        "$ref": "Operations/Branch/Transformer3W.json"
+      },
+      "TwoTerminalGenericHVDCLine": {
+        "$ref": "Operations/Branch/TwoTerminalGenericHVDCLine.json"
+      },
+      "TwoTerminalLCCLine": {
+        "$ref": "Operations/Branch/TwoTerminalLCCLine.json"
+      },
+      "TwoTerminalVSCLine": {
+        "$ref": "Operations/Branch/TwoTerminalVSCLine.json"
+      },
+      "VariableReserve": {
+        "$ref": "Operations/Service/VariableReserve.json"
+      },
+      "VariableReserveNonSpinning": {
+        "$ref": "Operations/Service/VariableReserveNonSpinning.json"
+      }
+    }
+  }
+}

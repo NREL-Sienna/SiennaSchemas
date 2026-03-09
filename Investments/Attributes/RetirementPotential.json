@@ -1,0 +1,27 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": [
+        "retirement_potential"
+    ],
+    "properties": {
+        "eligible_generators": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "planned_retirement_year": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "integer"
+            }
+        },
+        "build_year": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "integer"
+            }
+        }
+    }
+}

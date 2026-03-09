@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "T_g": {
+      "type": "number"
+    },
+    "Rrpwr": {
+      "type": "number"
+    },
+    "Brkpt": {
+      "type": "number"
+    },
+    "Zerox": {
+      "type": "number"
+    },
+    "Lvpl1": {
+      "type": "number"
+    },
+    "Vo_lim": {
+      "type": "number"
+    },
+    "Lv_pnts": {
+      "$ref": "../../Core/common.json#/definitions/MinMax"
+    },
+    "Io_lim": {
+      "type": "number"
+    },
+    "T_fltr": {
+      "type": "number"
+    },
+    "K_hv": {
+      "type": "number"
+    },
+    "Iqr_lims": {
+      "$ref": "../../Core/common.json#/definitions/MinMax"
+    },
+    "Accel": {
+      "type": "number"
+    },
+    "Lvpl_sw": {
+      "type": "boolean"
+    },
+    "Q_ref": {
+      "type": "number",
+      "default": 1.0
+    },
+    "R_source": {
+      "type": "number",
+      "default": 0.0
+    },
+    "X_source": {
+      "type": "number",
+      "default": 100000.0
+    }
+  },
+  "required": [
+    "id",
+    "T_g",
+    "Rrpwr",
+    "Brkpt",
+    "Zerox",
+    "Lvpl1",
+    "Vo_lim",
+    "Lv_pnts",
+    "Io_lim",
+    "T_fltr",
+    "K_hv",
+    "Iqr_lims",
+    "Accel",
+    "Lvpl_sw"
+  ],
+  "title": "RenewableEnergyConverterTypeA",
+  "type": "object"
+}

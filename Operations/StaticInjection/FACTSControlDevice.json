@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "id": {
+      "type": "integer"
+    },
+    "available": {
+      "type": "boolean"
+    },
+    "bus": {
+      "type": "integer"
+    },
+    "control_mode": {
+      "descriptor": "in psy5 a required param with an option to be nothing",
+      "$ref": "../../Core/common.json#/definitions/FACTSOperationModes"
+    },
+    "voltage_setpoint": {
+      "type": "number"
+    },
+    "max_shunt_current": {
+      "type": "number"
+    },
+    "reactive_power_required": {
+      "type": "number"
+    },
+    "dynamic_injector": {
+      "type": null
+    }
+  },
+  "required": [
+    "name",
+    "id",
+    "available",
+    "bus",
+    "max_shunt_current",
+    "reactive_power_required",
+    "voltage_setpoint"
+  ],
+  "title": "FACTSControlDevice",
+  "type": "object"
+}

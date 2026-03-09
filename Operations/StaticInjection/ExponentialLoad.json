@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "available": {
+      "type": "boolean"
+    },
+    "bus": {
+      "type": "integer"
+    },
+    "active_power": {
+      "type": "number"
+    },
+    "reactive_power": {
+      "type": "number"
+    },
+    "alpha": {
+      "type": "number"
+    },
+    "beta": {
+      "type": "number"
+    },
+    "base_power": {
+      "type": "number"
+    },
+    "max_active_power": {
+      "type": "number"
+    },
+    "max_reactive_power": {
+      "type": "number"
+    },
+    "conformity": {
+      "default": "UNDEFINED",
+      "$ref": "../../Core/common.json#/definitions/LoadConformity"
+    },
+    "dynamic_injector": {
+      "type": null
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "available",
+    "bus",
+    "active_power",
+    "reactive_power",
+    "alpha",
+    "beta",
+    "base_power",
+    "max_active_power",
+    "max_reactive_power"
+  ],
+  "title": "ExponentialLoad",
+  "type": "object"
+}

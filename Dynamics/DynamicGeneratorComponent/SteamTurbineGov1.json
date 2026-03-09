@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "R": {
+      "type": "number"
+    },
+    "T1": {
+      "type": "number"
+    },
+    "valve_position_limits": {
+      "$ref": "../../Core/common.json#/definitions/MinMax"
+    },
+    "T2": {
+      "type": "number"
+    },
+    "T3": {
+      "type": "number"
+    },
+    "D_T": {
+      "type": "number"
+    },
+    "DB_h": {
+      "type": "number"
+    },
+    "DB_l": {
+      "type": "number"
+    },
+    "T_rate": {
+      "type": "number"
+    },
+    "P_ref": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "id",
+    "R",
+    "T1",
+    "valve_position_limits",
+    "T2",
+    "T3",
+    "D_T",
+    "DB_h",
+    "DB_l",
+    "T_rate"
+  ],
+  "title": "SteamTurbineGov1",
+  "type": "object"
+}
