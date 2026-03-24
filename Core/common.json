@@ -702,7 +702,6 @@
           "$ref": "#/definitions/CostCurve"
         },
         "fixed": {
-          "const": 0.0,
           "type": "number",
           "default": 0.0
         }
