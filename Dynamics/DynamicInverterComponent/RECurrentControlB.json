@@ -1,9 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "properties": {
-    "id": {
-      "type": "integer"
-    },
     "Q_Flag": {
       "type": "boolean"
     },
@@ -42,7 +39,6 @@
     }
   },
   "required": [
-    "id",
     "Q_Flag",
     "PQ_Flag",
     "Vdip_lim",

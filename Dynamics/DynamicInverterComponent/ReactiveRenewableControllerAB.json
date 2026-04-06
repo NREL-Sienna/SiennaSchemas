@@ -1,9 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "properties": {
-    "id": {
-      "type": "integer"
-    },
     "bus_control": {
       "type": "integer"
     },
@@ -89,7 +86,6 @@
     }
   },
   "required": [
-    "id",
     "bus_control",
     "from_branch_control",
     "to_branch_control",
