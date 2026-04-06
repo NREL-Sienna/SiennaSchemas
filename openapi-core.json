@@ -29,6 +29,9 @@
       "DiscreteControlledBranchType": {
         "$ref": "Core/common.json#/definitions/DiscreteControlledBranchType"
       },
+      "Feature": {
+        "$ref": "Core/common.json#/definitions/Feature"
+      },
       "FACTSOperationModes": {
         "$ref": "Core/common.json#/definitions/FACTSOperationModes"
       },
@@ -140,6 +143,9 @@
       "ThermalGenerationCost": {
         "$ref": "Core/common.json#/definitions/ThermalGenerationCost"
       },
+      "ThermalRenewableGenerationCost": {
+        "$ref": "Core/common.json#/definitions/ThermalRenewableGenerationCost"
+      },
       "TransformerControlObjective": {
         "$ref": "Core/common.json#/definitions/TransformerControlObjective"
       },
@@ -166,6 +172,12 @@
       },
       "XY_Coords": {
         "$ref": "Core/common.json#/definitions/XY_Coords"
+      },
+      "GeographicInfo": {
+        "$ref": "Core/SupplementalAttributes/GeographicInfo.json"
+      },
+      "TimeSeriesAssociation": {
+        "$ref": "Core/TimeSeries/TimeSeriesAssociation.json"
       }
     }
   }
