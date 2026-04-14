@@ -854,6 +854,25 @@
       "title": "StorageTech",
       "type": "string"
     },
+    "Feature": {
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 1,
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "title": "Feature"
+    },
     "ThermalFuels": {
       "description": "Thermal fuels that reflect options in the EIA annual energy review.",
       "enum": [
@@ -939,6 +958,25 @@
         "start_up",
         "shut_down"
       ],
+      "type": "object"
+    },
+    "ThermalRenewableGenerationCost": {
+      "discriminator": {
+        "mapping": {
+          "RENEWABLE": "#/definitions/RenewableGenerationCost",
+          "THERMAL": "#/definitions/ThermalGenerationCost"
+        },
+        "propertyName": "cost_type"
+      },
+      "oneOf": [
+        {
+          "$ref": "#/definitions/ThermalGenerationCost"
+        },
+        {
+          "$ref": "#/definitions/RenewableGenerationCost"
+        }
+      ],
+      "title": "ThermalRenewableGenerationCost",
       "type": "object"
     },
     "TransformerControlObjective": {
